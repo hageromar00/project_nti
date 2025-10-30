@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'core/routes/app_routes.dart';
+import 'feature/authentication/login_screen/login_screen.dart';
+import 'feature/authentication/signup_screen/signup_screen.dart';
+import 'feature/onboarding_screen/onboarding_screen.dart';
+import 'feature/splash_screen/splash_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
