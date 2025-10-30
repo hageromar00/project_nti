@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 import 'package:cloud_firestore/cloud_firestore.dart';
-=======
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
 import 'package:flutter/material.dart';
 
 import '../../../core/color_manager/color_manager.dart';
 
 class FavoriteToggleIcon extends StatefulWidget {
-<<<<<<< HEAD
   final String productName;
   final String userId;
 
@@ -16,9 +12,6 @@ class FavoriteToggleIcon extends StatefulWidget {
     required this.productName,
     required this.userId,
   });
-=======
-  const FavoriteToggleIcon({super.key});
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
 
   @override
   State<FavoriteToggleIcon> createState() => _FavoriteToggleIconState();
@@ -26,7 +19,6 @@ class FavoriteToggleIcon extends StatefulWidget {
 
 class _FavoriteToggleIconState extends State<FavoriteToggleIcon> {
   bool isFavorite = false;
-<<<<<<< HEAD
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
@@ -69,15 +61,12 @@ class _FavoriteToggleIconState extends State<FavoriteToggleIcon> {
 
     await userRef.update({'favList': favList});
   }
-=======
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-<<<<<<< HEAD
         borderRadius: BorderRadius.circular(30),
       ),
       child: IconButton(
@@ -96,35 +85,6 @@ class _FavoriteToggleIconState extends State<FavoriteToggleIcon> {
                 ),
               )
             : const Icon(Icons.favorite_border, size: 25, color: Colors.grey),
-=======
-        borderRadius: BorderRadius.circular(
-          30,
-        ),
-      ),
-      child: IconButton(
-        onPressed: () {
-          setState(() {
-            isFavorite = !isFavorite;
-          });
-        },
-        icon: isFavorite
-            ? ShaderMask(
-          shaderCallback: (Rect bounds) {
-            return ColorManager.primaryColorGradient
-                .createShader(bounds);
-          },
-          child: const Icon(
-            Icons.favorite,
-            size: 25,
-            color: Colors.white,
-          ),
-        )
-            : const Icon(
-          Icons.favorite_border,
-          size: 25,
-          color: Colors.grey,
-        ),
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
       ),
     );
   }

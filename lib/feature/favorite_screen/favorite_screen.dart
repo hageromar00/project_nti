@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:project_nti_app/core/color_manager/color_manager.dart';
@@ -48,14 +47,16 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         .map((doc) => ProductModel.fromJson(doc.data() as Map<String, dynamic>))
         .toList();
 
+    final seenIds = <String>{};
     setState(() {
       favProducts = allProducts
-          .where((product) {
-            bool isFav = favIds.contains(product.name);
-            if (selectedCategory == "All") return isFav;
-            return isFav && product.category == selectedCategory;
-          })
-          .toSet()
+          .where(
+            (product) =>
+                favIds.contains(product.id ?? '') &&
+                (selectedCategory == "All" ||
+                    product.category == selectedCategory),
+          )
+          .where((p) => p.id != null && seenIds.add(p.id!))
           .toList();
     });
   }
@@ -112,14 +113,5 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         ),
       ),
     );
-=======
-
-class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
   }
 }

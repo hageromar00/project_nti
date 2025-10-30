@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import 'package:firebase_auth/firebase_auth.dart';
-=======
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_nti_app/feature/home_screen/cubit/product_cubit.dart';
@@ -25,10 +22,7 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
     context.read<ProductCubit>().getProducts();
     super.initState();
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -45,11 +39,7 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
               const CustomHomeAppBar(),
               SizedBox(height: SizeConfig.h(20)),
               const CustomSearchFilter(),
-<<<<<<< HEAD
               BlocConsumer<ProductCubit, ProductState>(
-=======
-              BlocConsumer<ProductCubit,ProductState>(
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
                 builder: (context, state) {
                   if (state is ProductError) {
                     return Text(state.error);
@@ -57,17 +47,11 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                   if (state is ProductLoading) {
                     return SizedBox(
                       height: MediaQuery.of(context).size.height * 0.6,
-<<<<<<< HEAD
                       child: const Center(
                         child: CircularProgressIndicator(
                           color: ColorManager.darkGray,
                         ),
                       ),
-=======
-                      child: const Center(child: CircularProgressIndicator(
-                        color: ColorManager.darkGray,
-                      )),
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
                     );
                   }
 
@@ -81,7 +65,6 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: state.products.length,
-<<<<<<< HEAD
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: SizeConfig.screenWidth < 600
@@ -91,14 +74,6 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                                 crossAxisSpacing: SizeConfig.w(10),
                                 mainAxisSpacing: SizeConfig.h(10),
                               ),
-=======
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: SizeConfig.screenWidth < 600 ? 2 : 4,
-                            mainAxisExtent: SizeConfig.h(250),
-                            crossAxisSpacing: SizeConfig.w(10),
-                            mainAxisSpacing: SizeConfig.h(10),
-                          ),
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
                           itemBuilder: (context, index) => GestureDetector(
                             onTap: () {},
                             child: Container(
@@ -113,14 +88,10 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                                     child: Stack(
                                       children: [
                                         ClipRRect(
-<<<<<<< HEAD
                                           borderRadius:
                                               const BorderRadius.vertical(
                                                 top: Radius.circular(16),
                                               ),
-=======
-                                          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
                                           child: Image.network(
                                             state.products[index].image,
                                             width: double.infinity,
@@ -130,7 +101,6 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                                         Positioned(
                                           right: 5,
                                           top: 5,
-<<<<<<< HEAD
                                           child: FavoriteToggleIcon(
                                             productName:
                                                 state.products[index].name,
@@ -139,14 +109,10 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                                                 .currentUser!
                                                 .uid,
                                           ),
-=======
-                                          child: FavoriteToggleIcon(),
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
                                         ),
                                       ],
                                     ),
                                   ),
-<<<<<<< HEAD
 
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -170,19 +136,6 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                                       ],
                                     ),
                                   ),
-=======
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(state.products[index].name, style: const TextStyle(fontWeight: FontWeight.bold)), // هنا استخدم products[index]
-                                        const SizedBox(height: 4),
-                                        Text("\$${state.products[index].price}", style: const TextStyle(color: Colors.grey)),
-                                      ],
-                                    ),
-                                  )
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
                                 ],
                               ),
                             ),
@@ -196,7 +149,6 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                 },
                 listener: (context, state) {
                   if (state is ProductError) {
-<<<<<<< HEAD
                     ScaffoldMessenger.of(
                       context,
                     ).showSnackBar(SnackBar(content: Text(state.error)));
@@ -205,14 +157,6 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
               ),
             ],
           ),
-=======
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error)));
-                  }
-                },)
-            ],
-          ),
-
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
         ),
       ),
     );

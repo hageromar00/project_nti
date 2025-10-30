@@ -1,4 +1,5 @@
 class ProductModel {
+  String? id;
   final String name;
   final double price;
   final String image;
@@ -6,6 +7,7 @@ class ProductModel {
   final String category;
 
   ProductModel({
+    this.id,
     required this.name,
     required this.price,
     required this.image,
@@ -13,10 +15,9 @@ class ProductModel {
     required this.category,
   });
 
-
-  //toJson
   Map<String, dynamic> toJson() {
     return {
+      'id': id, // مهم
       'name': name,
       'price': price,
       'image': image,
@@ -25,11 +26,11 @@ class ProductModel {
     };
   }
 
-  //fromJson (convert json to object)  (constructor)
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
+      id: json['id'],
       name: json['name'],
-      price: double.parse(json['price'].toString()),
+      price: json['price'],
       image: json['image'],
       description: json['description'],
       category: json['category'],

@@ -12,11 +12,7 @@ import 'feature/onboarding_screen/onboarding_screen.dart';
 import 'feature/splash_screen/splash_screen.dart';
 import 'firebase_options.dart';
 
-<<<<<<< HEAD
 void main() async {
-=======
-void main() async{
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await FirebaseDataBase().ProductToFirebase();
@@ -28,7 +24,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return MultiBlocProvider(
       providers: [
         BlocProvider<UserCubit>(
@@ -38,13 +33,6 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               ProductCubit(firebaseDataBase: FirebaseDataBase()),
         ),
-=======
-
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<UserCubit>(create: (context) => UserCubit(FirebaseDataBase()),),
-        BlocProvider<ProductCubit>(create: (context) => ProductCubit(firebaseDataBase: FirebaseDataBase()),)
->>>>>>> 15064677cafd3a76885c2277188b8d3ea7dad65a
       ],
       child: MaterialApp(
         initialRoute: AppRoutes.splash,
