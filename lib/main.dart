@@ -35,6 +35,6 @@ class MyApp extends StatelessWidget {
         AppRoutes.signup: (context) => SignupScreen(),
       },
       debugShowCheckedModeBanner: false,
-    ),)
+    ),);
   }
 }
