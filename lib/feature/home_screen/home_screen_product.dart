@@ -17,6 +17,15 @@ class HomeScreenProduct extends StatefulWidget {
 }
 
 class _HomeScreenProductState extends State<HomeScreenProduct> {
+  int selectedIndex = 0;
+
+  final List<Map<String, dynamic>> categories = [
+    {'icon': Icons.local_fire_department, 'label': 'Popular'},
+    {'icon': Icons.checkroom, 'label': 'Clothes'},
+    {'icon': Icons.watch, 'label': 'Watches'},
+    {'icon': Icons.backpack, 'label': 'Bags'},
+  ];
+
   @override
   void initState() {
     context.read<ProductCubit>().getProducts();
@@ -39,6 +48,34 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
               const CustomHomeAppBar(),
               SizedBox(height: SizeConfig.h(20)),
               const CustomSearchFilter(),
+              SizedBox(height: SizeConfig.h(20)),
+
+              // ✅ Category List
+              SizedBox(
+                height: SizeConfig.h(70),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    final category = categories[index];
+                    return CategoryItem(
+                      icon: category['icon'],
+                      label: category['label'],
+                      isSelected: selectedIndex == index,
+                      onPressed: () {
+                        context.read<ProductCubit>().filterProductsByType(category['label']);
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                    );
+                  },
+                ),
+              ),
+
+              SizedBox(height: SizeConfig.h(20)),
+
+              // ✅ Products Grid
               BlocConsumer<ProductCubit, ProductState>(
                 builder: (context, state) {
                   if (state is ProductError) {
@@ -56,102 +93,91 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
                   }
 
                   if (state is ProductSuccess) {
-                    return Column(
-                      children: [
-                        SizedBox(height: SizeConfig.h(20)),
-                        const CategorySelector(),
-                        SizedBox(height: SizeConfig.h(20)),
-                        GridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: state.products.length,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: SizeConfig.screenWidth < 600
-                                    ? 2
-                                    : 4,
-                                mainAxisExtent: SizeConfig.h(250),
-                                crossAxisSpacing: SizeConfig.w(10),
-                                mainAxisSpacing: SizeConfig.h(10),
-                              ),
-                          itemBuilder: (context, index) => GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.grey[100],
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    child: Stack(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              const BorderRadius.vertical(
-                                                top: Radius.circular(16),
-                                              ),
-                                          child: Image.network(
-                                            state.products[index].image,
-                                            width: double.infinity,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Positioned(
-                                          right: 5,
-                                          top: 5,
-                                          child: FavoriteToggleIcon(
-                                            productName:
-                                                state.products[index].name,
-                                            userId: FirebaseAuth
-                                                .instance
-                                                .currentUser!
-                                                .uid,
-                                          ),
-                                        ),
-                                      ],
+                    return GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: state.products.length,
+                      gridDelegate:
+                      SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount:
+                        SizeConfig.screenWidth < 600 ? 2 : 4,
+                        mainAxisExtent: SizeConfig.h(250),
+                        crossAxisSpacing: SizeConfig.w(10),
+                        mainAxisSpacing: SizeConfig.h(10),
+                      ),
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey[100],
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius:
+                                      const BorderRadius.vertical(
+                                        top: Radius.circular(16),
+                                      ),
+                                      child: Image.network(
+                                        state.products[index].image,
+                                        width: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          state.products[index].name,
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          "\$${state.products[index].price}",
-                                          style: const TextStyle(
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                      ],
+                                    Positioned(
+                                      right: 5,
+                                      top: 5,
+                                      child: FavoriteToggleIcon(
+                                        productName:
+                                        state.products[index].name,
+                                        userId: FirebaseAuth
+                                            .instance.currentUser!.uid,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      state.products[index].name,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      "\$${state.products[index].price}",
+                                      style: const TextStyle(
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
+                      ),
                     );
                   }
 
-                  return Text('data');
+                  return const SizedBox();
                 },
                 listener: (context, state) {
                   if (state is ProductError) {
-                    ScaffoldMessenger.of(
-                      context,
-                    ).showSnackBar(SnackBar(content: Text(state.error)));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(state.error)),
+                    );
                   }
                 },
               ),
