@@ -4,11 +4,13 @@ import 'package:project_nti_app/core/color_manager/color_manager.dart';
 class Button1 extends StatelessWidget {
   final String text;
   final Function() onTab;
+  final bool isLoading;
 
   const Button1({
     super.key,
     required this.text,
     required this.onTab,
+    this.isLoading = false,
   });
 
   @override
@@ -32,7 +34,7 @@ class Button1 extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
         ),
-        child: Text(
+        child:  isLoading?CircularProgressIndicator():Text(
           text,
           style: TextStyle(
             fontSize: screenWidth * 0.055,
