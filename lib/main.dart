@@ -9,6 +9,7 @@ import 'feature/authentication/signup_screen/signup_screen.dart';
 import 'feature/home/home.dart';
 import 'feature/home_screen/cubit/product_cubit.dart';
 import 'feature/onboarding_screen/onboarding_screen.dart';
+import 'feature/profile_screen/profile_screen.dart';
 import 'feature/splash_screen/splash_screen.dart';
 import 'firebase_options.dart';
 
@@ -33,6 +34,10 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               ProductCubit(firebaseDataBase: FirebaseDataBase()),
         ),
+        BlocProvider(
+          create: (context) => UserCubit(FirebaseDataBase()),
+          child: ProfileScreen(),
+        )
       ],
       child: MaterialApp(
         initialRoute: AppRoutes.splash,
