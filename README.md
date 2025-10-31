@@ -1,20 +1,28 @@
-<<<<<<< HEAD
-# project_nti_app
+# Flutter E-Commerce App
 
-A new Flutter project.
+A modern Flutter application that simulates an online shopping experience with authentication, product browsing, and order management.
 
-## Getting Started
+## Features
+- **Splash Screen**: Smooth app introduction before navigation.
+- **Onboarding Screens**: Guide users through the app’s main features.
+- **Authentication Module**:
+  - Sign Up
+  - Sign In
+  - Log Out
+- **Home Screen**:
+  - Displays a list of products with images, prices, and brief descriptions.
+  - Each product navigates to a detailed view.
+- **Product Details Screen**:
+  - Shows full product information.
+  - Option to add items to favorites or to the order list.
+- **Favorite Screen**:
+  - Displays all saved favorite products.
+- **Order Details Screen**:
+  - Shows order summary and item details.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# project_nti
->>>>>>> 6ed2d0d9942068ae2133171db90b8c13c4ef1422
+## Technologies Used
+- **Flutter** (latest stable version)
+- **Dart**
+- **State Management**: Bloc / Cubit 
+- **Firebase** (for Authentication / Database) 
+- **Responsive UI** compatible with Android and iOS
