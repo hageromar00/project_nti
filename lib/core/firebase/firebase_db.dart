@@ -100,6 +100,20 @@ class FirebaseDataBase {
         description: 'Warm hoodie with a cool graphic print.',
         category: 'Clothes',
       ),
+      ProductModel(
+        name: 'Oversized Sweatshirt',
+        price: 34.99,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0D66IV8oXfzUZ2QXY1w86o-KlWa4jHLKHVw&s',
+        description: 'Comfy oversized sweatshirt for relaxed style.',
+        category: 'Clothes',
+      ),
+      ProductModel(
+        name: 'Plaid Shirt',
+        price: 42.99,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThisJYubnI1iidtz3yKdheD6RvSjTbYjLDVw&s',
+        description: 'Classic plaid shirt for everyday casual wear.',
+        category: 'Clothes',
+      ),
 
       // 👟 Shoes
       ProductModel(
@@ -133,6 +147,20 @@ class FirebaseDataBase {
         description: 'Stylish high-top sneakers for everyday wear.',
         category: 'Shoes',
       ),
+      ProductModel(
+        name: 'Slip-On Trainers',
+        price: 54.99,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm0SvwsAsW1DZordWcMxzaUIPRrk71kaxVEg&s',
+        description: 'Comfortable slip-on trainers for daily use.',
+        category: 'Shoes',
+      ),
+      ProductModel(
+        name: 'Retro Running Shoes',
+        price: 74.99,
+        image: 'https://www.fashionbeans.com/wp-content/uploads/2019/04/retro-sneakers-19-top-1.jpg',
+        description: 'Stylish retro sneakers with breathable fabric.',
+        category: 'Shoes',
+      ),
 
       // ⌚ Watches
       ProductModel(
@@ -164,6 +192,20 @@ class FirebaseDataBase {
         description: 'Smartwatch with fitness tracking and notifications.',
         category: 'Watches',
       ),
+      ProductModel(
+        name: 'Digital Sports Watch',
+        price: 89.99,
+        image: 'https://m.media-amazon.com/images/I/616ZpI9EadL._AC_UY1000_.jpg',
+        description: 'Sporty digital watch with waterproof design.',
+        category: 'Watches',
+      ),
+      ProductModel(
+        name: 'Chronograph Steel Watch',
+        price: 139.99,
+        image: 'https://m.media-amazon.com/images/I/81SaDsBddtL._AC_UY350_.jpg',
+        description: 'Elegant stainless steel chronograph watch with precise detailing.',
+        category: 'Watches',
+      ),
 
       // 👜 Bags
       ProductModel(
@@ -192,6 +234,20 @@ class FirebaseDataBase {
         price: 119.99,
         image: 'https://cdn.iceberg.com.filoblu.com/rx/ofmt_webp/media/catalog/product/2/5/25IK2P1722769379000-U_3.JPG',
         description: 'Large tote bag made from eco-friendly leather alternative.',
+        category: 'Bags',
+      ),
+      ProductModel(
+        name: 'Crossbody Bag',
+        price: 59.99,
+        image: 'https://m.media-amazon.com/images/I/51t3jnd1lUL._AC_SL1001_.jpg',
+        description: 'Trendy crossbody bag with adjustable strap.',
+        category: 'Bags',
+      ),
+      ProductModel(
+        name: 'Laptop Backpack',
+        price: 89.99,
+        image: 'https://m.media-amazon.com/images/I/717Rp03xdmL._AC_SL1500_.jpg',
+        description: 'Spacious laptop backpack with multiple compartments.',
         category: 'Bags',
       ),
     ];

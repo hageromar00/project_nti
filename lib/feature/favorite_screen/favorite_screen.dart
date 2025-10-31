@@ -52,10 +52,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       favProducts = allProducts
           .where(
             (product) =>
-                favIds.contains(product.id ?? '') &&
-                (selectedCategory == "All" ||
-                    product.category == selectedCategory),
-          )
+        favIds.contains(product.id ?? '') &&
+            (selectedCategory == "All" ||
+                product.category == selectedCategory),
+      )
           .where((p) => p.id != null && seenIds.add(p.id!))
           .toList();
     });
@@ -100,11 +100,11 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 child: favProducts.isEmpty
                     ? const Center(child: Text("No favorites yet"))
                     : ListView.builder(
-                        itemCount: favProducts.length,
-                        itemBuilder: (context, index) {
-                          return FavoriteItemCard(product: favProducts[index]);
-                        },
-                      ),
+                  itemCount: favProducts.length,
+                  itemBuilder: (context, index) {
+                    return FavoriteItemCard(product: favProducts[index]);
+                  },
+                ),
               ),
               const BuyNowButton(),
               SizedBox(height: height * 0.02),
