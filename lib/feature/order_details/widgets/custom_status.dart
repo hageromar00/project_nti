@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_nti_app/feature/home_screen/model/product_model.dart';
 import 'custom_row_status.dart';
 
@@ -11,7 +12,7 @@ class CurrentStatusCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -26,16 +27,16 @@ class CurrentStatusCard extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children:  [
               Text(
                 "Current Status",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
               ),
               Icon(Icons.more_vert, color: Colors.grey),
             ],
           ),
 
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           CustomStatus(model: model),
         ],
       ),

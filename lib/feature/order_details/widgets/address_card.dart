@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DeliveryAddressCard extends StatelessWidget {
   const DeliveryAddressCard({super.key});
@@ -8,7 +9,7 @@ class DeliveryAddressCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[300],
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
       ),
       padding: const EdgeInsets.all(12),
       child: Row(
@@ -20,14 +21,14 @@ class DeliveryAddressCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text(
+                     Text(
                       "Address",
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                     SizedBox(width: 8.w),
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.blue,
@@ -37,29 +38,29 @@ class DeliveryAddressCard extends StatelessWidget {
                         horizontal: 8,
                         vertical: 2,
                       ),
-                      child: const Text(
+                      child: Text(
                         "Home",
-                        style: TextStyle(color: Colors.white, fontSize: 11),
+                        style: TextStyle(color: Colors.white, fontSize: 11.sp),
                       ),
                     ),
                     const Spacer(),
-                    const Icon(Icons.edit, size: 18),
+                   Icon(Icons.edit, size: 18.sp),
                   ],
                 ),
-                const SizedBox(height: 5),
-                const Text(
+                 SizedBox(height: 5.h),
+                 Text(
                   "Andria Kate\n2573 Housing Estate, India 31165\n+912568595410\nexample@gmail.com",
-                  style: TextStyle(fontSize: 13),
+                  style: TextStyle(fontSize: 13.sp),
                 ),
               ],
             ),
           ),
 
-          const SizedBox(width: 20),
+          SizedBox(width: 20.w),
           Flexible(
             child: Image.network(
               "https://developers.google.com/static/maps/solutions/images/store-locator/autocomplete.png?hl=ar",
-              height: 100,
+              height: 100.h,
               fit: BoxFit.cover,
             ),
           ),

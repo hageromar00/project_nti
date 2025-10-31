@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaymentMethodCard extends StatelessWidget {
   const PaymentMethodCard({super.key});
@@ -8,7 +9,7 @@ class PaymentMethodCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[300],
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
       ),
       padding: const EdgeInsets.all(12),
       child: Column(
@@ -16,32 +17,32 @@ class PaymentMethodCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.credit_card, size: 20),
-              const SizedBox(width: 8),
-              const Text(
+               Icon(Icons.credit_card, size: 20.sp),
+              SizedBox(width: 8.w),
+              Text(
                 "Credit Card",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
               ),
               const Spacer(),
               const Icon(Icons.edit, size: 18),
             ],
           ),
-          const SizedBox(height: 5),
+          SizedBox(height: 5.h),
           const Text(
             "Andria Kate\n5447 5438 3254 ****\nExpiry: 12/28",
             style: TextStyle(fontSize: 13),
           ),
-          const SizedBox(height: 6),
-          const Row(
+          SizedBox(height: 6.h),
+           Row(
             children: [
               Text(
                 "Secure checkout powered by",
-                style: TextStyle(fontSize: 11, color: Colors.grey),
+                style: TextStyle(fontSize: 11.sp, color: Colors.grey),
               ),
               Expanded(
                 child: Text(
                   " Reserve Bank of India RBI",
-                  style: TextStyle(fontSize: 12, color: Colors.blue),
+                  style: TextStyle(fontSize: 12.sp, color: Colors.blue),
                 ),
               ),
             ],
