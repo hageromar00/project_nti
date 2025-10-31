@@ -11,7 +11,8 @@ import '../../core/color_manager/color_manager.dart';
 import '../../core/utils/size_config.dart';
 
 class HomeScreenProduct extends StatefulWidget {
-  const HomeScreenProduct({super.key});
+  final String name;
+  const HomeScreenProduct({super.key,required this.name});
 
   @override
   State<HomeScreenProduct> createState() => _HomeScreenProductState();
@@ -46,7 +47,7 @@ class _HomeScreenProductState extends State<HomeScreenProduct> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const CustomHomeAppBar(),
+              CustomHomeAppBar(name: widget.name,),
               SizedBox(height: SizeConfig.h(20)),
               const CustomSearchFilter(),
               SizedBox(height: SizeConfig.h(20)),

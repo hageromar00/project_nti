@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.onboarding: (context) => const OnboardingScreen(),
           AppRoutes.login: (context) => const LoginScreen(),
           AppRoutes.signup: (context) => const SignupScreen(),
-          AppRoutes.home: (context) => const Home(),
+          AppRoutes.home: (context) => const Home( ),
         },
         debugShowCheckedModeBanner: false,
       ),

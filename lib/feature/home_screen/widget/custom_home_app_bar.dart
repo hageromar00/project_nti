@@ -3,7 +3,8 @@ import '../../../core/color_manager/color_manager.dart';
 import '../../../core/utils/size_config.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
-  const CustomHomeAppBar({super.key});
+  final String name;
+  const CustomHomeAppBar({super.key,required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +18,8 @@ class CustomHomeAppBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(SizeConfig.w(30)),
             child: Image.asset(
               'assets/user.png',
-              width: SizeConfig.w(45),
-              height: SizeConfig.h(45),
+              width: SizeConfig.w(55),
+              height: SizeConfig.h(55),
               fit: BoxFit.cover,
             ),
           ),
@@ -28,17 +29,17 @@ class CustomHomeAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hello Zara Lindell',
+              name,
               style: TextStyle(
-                color: Colors.grey,
-                fontSize: SizeConfig.w(14),
+                color: Colors.black,
+                fontSize: SizeConfig.w(18),
               ),
             ),
             Text(
               'Welcome Back',
               style: TextStyle(
                 fontSize: SizeConfig.w(16),
-                color: Colors.black,
+                color: Colors.grey,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -54,8 +55,8 @@ class CustomHomeAppBar extends StatelessWidget {
           ),
           child: Image.asset(
             'assets/bag.png',
-            width: SizeConfig.w(22),
-            height: SizeConfig.h(22),
+            width: SizeConfig.w(35),
+            height: SizeConfig.h(35),
           ),
         ),
       ],

@@ -192,12 +192,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 );
 
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Home(),
+                    builder: (context) => Home(name: state.user.name),
                   ),
                 );
+
               }
             }) ,
           ),
